@@ -22,7 +22,7 @@ import 'react-group/src/group-utils.css';
 
 ### About
 
-Card,List and Panel are generic groups, most likely you want to compose specific variants out of them. In it's simplest form: 
+**Card**, **List** and **Panel** are generic **groups**, most likely you want to compose specific variants out of them. In it's simplest form: 
 
 ````typescript
 
@@ -33,19 +33,20 @@ interface MyPanelProps extends PanelProps {
     highlighted?:boolean
 }
 
-const MyDesignSystemPanel =(props:MyPanelProps) => <Panel {...props} {...hightlighted && {className:"red-500"}}/>;
+const MyDesignSystemPanel =(props:MyPanelProps) => <Panel {...props} {...highlighted && {className:"red-500"}}/>;
 
 
 ````
 
 
-A more realistic example could be to enhance it as a **compound** component so that you can consume it with better **developer experience**. 
+A more realistic example could be to enhance it as a **compound** component.
+
+Let's say our Cards under a specific feature contain a **Title** and some **Actions** (you may have seen them named CardHeader o CardFooter), you may be inclined to do some extra work to achieve the following **developer experience**.
 
 
 ````typescript
 
 // goal 
-
 const cardButtons = [ 
 {
     disabled:false,
@@ -58,6 +59,7 @@ const cardButtons = [
     onClick: next
 }
 ]
+
 return (
 <Card as="article" ratio="landscape">
     <Card.Title icon>Card Title</Card.Title>
@@ -69,13 +71,12 @@ return (
 ````
 
 
-Full example:
+To accomplish it:
 
 
 ````typescript
 
 // desing-system/packages/Card/index.tsx
-
 import {ReactNode} from 'react';
 import {Panel} from 'react-group';
 import { PanelProps } from 'react-group/src/types';
@@ -86,7 +87,6 @@ interface TitleProps  {
 }
 
 const Title =(props:TitleProps) => <Row className="panel:title"> <h2>{children}</h2><IconButton variant="cross" className="ml:auto"/> </Row>;
-
 
 interface Action {
     label:string | ReactNode;
@@ -124,7 +124,7 @@ No build step, 'pack it' in a .tgz file.
 
 ```
 
-To consume it locally, run on destination project the following command.
+To consume it locally run on **destination project**.
 
 ```bash
 
