@@ -33,8 +33,7 @@ interface MyPanelProps extends PanelProps {
     highlighted?:boolean
 }
 
-const MyDesignSystemPanel =(props:MyPanelProps) => <Panel {...props} {...highlighted && {className:"red-500"}}/>;
-
+const MyDesignSystemPanel =(props:MyPanelProps) => <Panel {...props} {...(highlighted && {className:"red-500"})}/>;
 
 ````
 
@@ -47,7 +46,7 @@ Let's say our Cards under a specific feature contain a **Title** and some **Acti
 ````typescript
 
 // goal 
-const cardButtons = [ 
+const actions = [ 
 {
     disabled:false,
     label: 'Cancel',
@@ -64,7 +63,7 @@ return (
 <Card as="article" ratio="landscape">
     <Card.Title icon>Card Title</Card.Title>
     <p>Card content content content (...)</p>
-    <Card.Actions/>
+    <Card.Actions actions={actions}/>
 </Card>)
 
 
