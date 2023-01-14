@@ -86,7 +86,7 @@ interface TitleProps  {
     icon?:boolean
 }
 
-const Title =(props:TitleProps) => <Row className="panel:title"> <h2>{children}</h2><IconButton variant="cross" className="ml:auto"/> </Row>;
+const Title =(props:TitleProps) => <Row className="card:title"> <h2>{children}</h2><IconButton variant="cross" className="ml:auto"/> </Row>;
 
 interface Action {
     label:string | ReactNode;
@@ -100,7 +100,7 @@ interface ActionsProps  {
     actions:Actions;
 }
 
-const Actions =(props:TitleProps) => <Row className="panel:actions"> {props.actions.map((action)=> <Button onClick={action.onClick}>{action.label}</Button> )} </Row>;
+const Actions =(props:TitleProps) => <Row className="card:actions"> {props.actions.map((action)=> <Button onClick={action.onClick}>{action.label}</Button> )} </Row>;
 
 
 Card.Title = Title;
@@ -132,6 +132,10 @@ To consume it locally run on **destination project**.
     npm run link
 
 ```
+
+### Roadmap
+
+- [ ] port **view** group from ```css-group```
 
 ### Inspiration 💐
 
