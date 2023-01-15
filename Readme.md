@@ -22,7 +22,7 @@ import 'react-group/src/group-utils.css';
 
 ### About
 
-**Card**, **List** and **Panel** are generic **groups**, most likely you want to compose specific variants out of them. In it's simplest form: 
+**Card**, **List** and **Panel** are generic **groups**, most likely you want to compose specific variants out of them. In its simplest form: 
 
 ````typescript
 
@@ -77,8 +77,7 @@ To accomplish it:
 
 // desing-system/packages/Card/index.tsx
 import {ReactNode} from 'react';
-import {Panel} from 'react-group';
-import { PanelProps } from 'react-group/src/types';
+import {Card} from 'react-group';
 
 interface TitleProps  {
     children:string | ReactNode;
@@ -134,7 +133,7 @@ To consume it locally run on **destination project**.
 
 ### Roadmap
 
-- [ ] port **view** group from ```css-group```
+- [ ] port **view** and **item** group from ```css-group```
 
 ### Inspiration 💐
 
