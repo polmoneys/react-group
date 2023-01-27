@@ -15,9 +15,17 @@ function List(props: ListProps) {
 
 List.Item = (props: ListItemProps) => {
   const { className, children, description, start, end } = props;
+  const slots = `${start ? ":start" : ""}${end ? ":end" : ""}`;
 
+  const classNamesGroup = [
+    className,
+    "item",
+    `list:item${start || end ? slots : ""}`,
+  ]
+    .filter(Boolean)
+    .join(" ");
   return (
-    <li {...(className !== undefined && { className })}>
+    <li className={classNamesGroup}>
       {start && <div className="start">{start}</div>}
       <div>
         {children}
@@ -30,11 +38,9 @@ List.Item = (props: ListItemProps) => {
 
 List.Divider = (props: Pick<ListItemProps, "children">) => {
   return (
-    <li>
-      <div>
-        <div className="list:divider">
-          {props.children !== undefined && props.children}
-        </div>
+    <li className="item">
+      <div className="list:divider">
+        {props.children !== undefined && props.children}
       </div>
     </li>
   );
